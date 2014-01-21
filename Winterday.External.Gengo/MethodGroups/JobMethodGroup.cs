@@ -126,6 +126,20 @@ namespace Winterday.External.Gengo.MethodGroups
             return new SubmittedJob(obj["job"] as JObject);
         }
 
+        public async Task<SubmittedFileJob> GetFile(int jobId,
+            bool includeMachineTranslation)
+        {
+            var uri = UriPartJob + jobId;
+
+            var data = new Dictionary<string, string>();
+            data["pre_mt"] =
+                Convert.ToInt32(includeMachineTranslation).ToString();
+
+            var obj = await _client.GetJsonAsync<JObject>(uri, data, true);
+
+            return new SubmittedFileJob(obj["job"] as JObject);
+        }
+
         /// <summary>
         /// Gets the submitted feedback for a job in the 'Approved' state
         /// </summary>
