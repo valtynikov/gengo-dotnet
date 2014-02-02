@@ -340,10 +340,7 @@ namespace Winterday.External.Gengo.Payloads
             if (_tier == TranslationTier.Unknown)
                 throw new InvalidOperationException(Resources.InvalidTier);
 
-            if (_type == JobType.File && string.IsNullOrWhiteSpace(_fileId))
-                throw new InvalidOperationException(Resources.FileButIdNotSpecified);
-
-            if (_type == JobType.Text && !string.IsNullOrWhiteSpace(_fileId))
+            if (JobType == JobType.Text && !string.IsNullOrWhiteSpace(_fileId))
                 throw new InvalidOperationException(Resources.TextButIdSpecified);
 
             if (JobType == Gengo.JobType.Text && String.IsNullOrWhiteSpace(_body))
