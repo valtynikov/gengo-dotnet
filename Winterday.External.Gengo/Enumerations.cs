@@ -38,7 +38,8 @@ namespace Winterday.External.Gengo
         Unknown,
         Translator,
         SeniorTranslator,
-        Customer
+        Customer,
+        Worker
     }
 
     /// <summary>
