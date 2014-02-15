@@ -123,6 +123,7 @@ namespace Winterday.External.Gengo
         Revising,
         Approved,
         Cancelled,
+        Rejected,
         Unknown
     }
 }
